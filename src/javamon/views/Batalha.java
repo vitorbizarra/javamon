@@ -4,8 +4,8 @@
  */
 package javamon.views;
 
-import java.awt.Image;
-import javax.swing.ImageIcon;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *
@@ -21,14 +21,13 @@ public class Batalha extends javax.swing.JFrame {
 
         ImageIcon imgBg = new ImageIcon(getClass().getResource("/javamon/assets/battle_bg.jpg"));
         lblBg.setIcon(new ImageIcon(imgBg.getImage().getScaledInstance(lblBg.getWidth(), lblBg.getHeight(), Image.SCALE_DEFAULT)));
-        
+
         ImageIcon imgSeuPokemon = new ImageIcon(getClass().getResource("/javamon/assets/sprites/bulbasaur_back.png"));
         lblSeuPokemon.setIcon(new ImageIcon(imgSeuPokemon.getImage().getScaledInstance(lblSeuPokemon.getWidth(), lblSeuPokemon.getHeight(), Image.SCALE_DEFAULT)));
-        
+
         ImageIcon imgOutroPokemon = new ImageIcon(getClass().getResource("/javamon/assets/sprites/squirtle_front.png"));
         lblOutroPokemon.setIcon(new ImageIcon(imgOutroPokemon.getImage().getScaledInstance(lblOutroPokemon.getWidth(), lblOutroPokemon.getHeight(), Image.SCALE_DEFAULT)));
-
-
+        
     }
 
     /**
@@ -41,7 +40,9 @@ public class Batalha extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        nomeOutroPokemon = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        nomeSeuPokemon = new javax.swing.JLabel();
         lblOutroPokemon = new javax.swing.JLabel();
         lblSeuPokemon = new javax.swing.JLabel();
         lblBg = new javax.swing.JLabel();
@@ -50,10 +51,55 @@ public class Batalha extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(720, 480));
         setResizable(false);
         getContentPane().setLayout(null);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        nomeOutroPokemon.setText("Nome do outro pokemon");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nomeOutroPokemon)
+                .addContainerGap(158, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nomeOutroPokemon)
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
+
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(20, 20, 250, 70);
+        jPanel1.setBounds(10, 10, 300, 110);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        nomeSeuPokemon.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nomeSeuPokemon.setText("Nome do seu pokemon");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nomeSeuPokemon)
+                .addContainerGap(150, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nomeSeuPokemon)
+                .addContainerGap(84, Short.MAX_VALUE))
+        );
+
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(350, 340, 310, 80);
+        jPanel2.setBounds(390, 320, 300, 110);
 
         lblOutroPokemon.setText("SeuPokemon");
         lblOutroPokemon.setMaximumSize(new java.awt.Dimension(160, 160));
@@ -116,5 +162,7 @@ public class Batalha extends javax.swing.JFrame {
     private javax.swing.JLabel lblBg;
     private javax.swing.JLabel lblOutroPokemon;
     private javax.swing.JLabel lblSeuPokemon;
+    private javax.swing.JLabel nomeOutroPokemon;
+    private javax.swing.JLabel nomeSeuPokemon;
     // End of variables declaration//GEN-END:variables
 }

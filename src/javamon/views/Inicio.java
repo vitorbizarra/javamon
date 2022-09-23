@@ -39,7 +39,7 @@ public class Inicio extends javax.swing.JFrame {
         btnGroupPokemon = new javax.swing.ButtonGroup();
         rbSeuPokemon = new javax.swing.JRadioButton();
         rbOutroPokemon = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        btnBatalhar = new javax.swing.JButton();
         lblSeuPokemon = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnOmanyte = new javax.swing.JButton();
@@ -62,10 +62,13 @@ public class Inicio extends javax.swing.JFrame {
         rbOutroPokemon.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbOutroPokemon.setText("Outro Pokemon:");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Batalhar");
-
-        lblSeuPokemon.setText("jLabel1");
+        btnBatalhar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnBatalhar.setText("Batalhar");
+        btnBatalhar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBatalharActionPerformed(evt);
+            }
+        });
 
         btnOmanyte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javamon/assets/arts/omanyte.png"))); // NOI18N
         btnOmanyte.setText("jButton1");
@@ -150,8 +153,6 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(btnOmanyte, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        lblOutroPokemon.setText("jLabel1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -169,7 +170,7 @@ public class Inicio extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(lblOutroPokemon)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1))
+                            .addComponent(btnBatalhar))
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(125, Short.MAX_VALUE))
         );
@@ -183,10 +184,11 @@ public class Inicio extends javax.swing.JFrame {
                     .addComponent(rbSeuPokemon)
                     .addComponent(lblSeuPokemon))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbOutroPokemon)
-                    .addComponent(jButton1)
-                    .addComponent(lblOutroPokemon))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBatalhar)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rbOutroPokemon)
+                        .addComponent(lblOutroPokemon)))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
 
@@ -242,6 +244,15 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMagikarpActionPerformed
 
+    private void btnBatalharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalharActionPerformed
+        Batalha batalha = new Batalha();
+        batalha.setVisible(true);
+
+        //Como vai passar as informações para o outro jFrame?
+        String seu_poke = lblSeuPokemon.getText();
+        String outro_poke = lblOutroPokemon.getText();
+    }//GEN-LAST:event_btnBatalharActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -278,6 +289,7 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBatalhar;
     private javax.swing.JButton btnBulbasaur;
     private javax.swing.JButton btnCharmander;
     private javax.swing.JButton btnFarfetch;
@@ -285,7 +297,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton btnMagikarp;
     private javax.swing.JButton btnOmanyte;
     private javax.swing.JButton btnSquirtle;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblOutroPokemon;
     private javax.swing.JLabel lblSeuPokemon;
