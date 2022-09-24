@@ -25,6 +25,22 @@ public class Inicio extends javax.swing.JFrame {
 
         ImageIcon imgOmanyte = new ImageIcon(getClass().getResource("/javamon/assets/arts/omanyte.png"));
         btnOmanyte.setIcon(new ImageIcon(imgOmanyte.getImage().getScaledInstance(btnOmanyte.getWidth(), btnOmanyte.getHeight(), Image.SCALE_DEFAULT)));
+
+        Batalha batalha = new Batalha();
+        new Thread() {
+            public void run() {
+                try {
+                    for (int i = 0; i < 101; i++) {
+                        Thread.sleep(60);
+                    }
+                    dispose();
+                    batalha.setVisible(true);
+                } catch (InterruptedException ex) {
+                }
+            }
+        }.start();
+
+        batalha.setNomeSeuPokemon("teste");
     }
 
     /**
@@ -64,11 +80,6 @@ public class Inicio extends javax.swing.JFrame {
 
         btnBatalhar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBatalhar.setText("Batalhar");
-        btnBatalhar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBatalharActionPerformed(evt);
-            }
-        });
 
         btnOmanyte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javamon/assets/arts/omanyte.png"))); // NOI18N
         btnOmanyte.setText("jButton1");
@@ -172,7 +183,7 @@ public class Inicio extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnBatalhar))
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +200,7 @@ public class Inicio extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(rbOutroPokemon)
                         .addComponent(lblOutroPokemon)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         pack();
@@ -244,14 +255,12 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMagikarpActionPerformed
 
-    private void btnBatalharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalharActionPerformed
-        Batalha batalha = new Batalha();
-        batalha.setVisible(true);
-
-        //Como vai passar as informações para o outro jFrame?
-        String seu_poke = lblSeuPokemon.getText();
-        String outro_poke = lblOutroPokemon.getText();
-    }//GEN-LAST:event_btnBatalharActionPerformed
+    public void clicklBtnBatalhar() {
+        if (btnBatalhar.getModel().isPressed()) {
+            Inicio inicio = new Inicio();
+            inicio.setVisible(true);
+        }
+    }
 
     /**
      * @param args the command line arguments

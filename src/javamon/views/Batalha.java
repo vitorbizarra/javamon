@@ -155,6 +155,14 @@ public class Batalha extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void setNomeSeuPokemon(String nome) {
+        nomeSeuPokemon.setText(nome);
+    }
+    
+    public void setNomeOutroPokemon(String nome) {
+        nomeOutroPokemon.setText(nome);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
