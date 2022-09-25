@@ -16,18 +16,20 @@ public class Batalha extends javax.swing.JFrame {
     /**
      * Creates new form Batalha
      */
-    public Batalha() {
+    public Batalha(String nomeSeuPoke, String imgSeuPoke, String nomeOutroPoke, String imgOutroPoke) {
         initComponents();
 
         ImageIcon imgBg = new ImageIcon(getClass().getResource("/javamon/assets/battle_bg.jpg"));
         lblBg.setIcon(new ImageIcon(imgBg.getImage().getScaledInstance(lblBg.getWidth(), lblBg.getHeight(), Image.SCALE_DEFAULT)));
 
-        ImageIcon imgSeuPokemon = new ImageIcon(getClass().getResource("/javamon/assets/sprites/bulbasaur_back.png"));
+        nomeSeuPokemon.setText(nomeSeuPoke);
+        nomeOutroPokemon.setText(nomeOutroPoke);
+
+        ImageIcon imgSeuPokemon = new ImageIcon(getClass().getResource(imgSeuPoke));
         lblSeuPokemon.setIcon(new ImageIcon(imgSeuPokemon.getImage().getScaledInstance(lblSeuPokemon.getWidth(), lblSeuPokemon.getHeight(), Image.SCALE_DEFAULT)));
 
-        ImageIcon imgOutroPokemon = new ImageIcon(getClass().getResource("/javamon/assets/sprites/squirtle_front.png"));
+        ImageIcon imgOutroPokemon = new ImageIcon(getClass().getResource(imgOutroPoke));
         lblOutroPokemon.setIcon(new ImageIcon(imgOutroPokemon.getImage().getScaledInstance(lblOutroPokemon.getWidth(), lblOutroPokemon.getHeight(), Image.SCALE_DEFAULT)));
-        
     }
 
     /**
@@ -101,7 +103,7 @@ public class Batalha extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(390, 320, 300, 110);
 
-        lblOutroPokemon.setText("SeuPokemon");
+        lblOutroPokemon.setText("lblOutroPokemon");
         lblOutroPokemon.setMaximumSize(new java.awt.Dimension(160, 160));
         lblOutroPokemon.setMinimumSize(new java.awt.Dimension(160, 160));
         getContentPane().add(lblOutroPokemon);
@@ -151,17 +153,8 @@ public class Batalha extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Batalha().setVisible(true);
             }
         });
-    }
-    
-    public void setNomeSeuPokemon(String nome) {
-        nomeSeuPokemon.setText(nome);
-    }
-    
-    public void setNomeOutroPokemon(String nome) {
-        nomeOutroPokemon.setText(nome);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

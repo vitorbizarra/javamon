@@ -1,79 +1,90 @@
 package javamon.models;
 
 public class Pokemon {
+
     private String nome;
     private String tipo;
     private int level;
     private int vida;
     private int ataque;
     private int defesa;
-    private String sprite_front;
-    private String sprite_back;
+    private String sprite;
+
+    public Pokemon(String nome, String tipo, int level, boolean meuPoke) {
+        this.nome = nome;
+        this.tipo = tipo;
+        this.level = level;
+        switch (nome) {
+            case "Bulbassauro":
+                if (meuPoke == true) {
+                    this.sprite = "/javamon/assets/sprites/bulbasaur_back.png";
+                } else {
+                    this.sprite = "/javamon/assets/sprites/bulbasaur_front.png";
+                }
+                break;
+            case "Charmander":
+                if (meuPoke == true) {
+                    this.sprite = "/javamon/assets/sprites/charmander_back.png";
+                } else {
+                    this.sprite = "/javamon/assets/sprites/charmander_front.png";
+                }
+                break;
+            case "Squirtle":
+                if (meuPoke == true) {
+                    this.sprite = "/javamon/assets/sprites/squirtle_back.png";
+                } else {
+                    this.sprite = "/javamon/assets/sprites/squirtle_front.png";
+                }
+            case "Magikarp":
+                if (meuPoke == true) {
+                    this.sprite = "/javamon/assets/sprites/magikarp_back.png";
+                } else {
+                    this.sprite = "/javamon/assets/sprites/magikarp_front.png";
+                }
+                break;
+            case "Omanyte":
+                if (meuPoke == true) {
+                    this.sprite = "/javamon/assets/sprites/omanyte_back.png";
+                } else {
+                    this.sprite = "/javamon/assets/sprites/omanyte_front.png";
+                }
+                break;
+            default:
+                if (meuPoke == true) {
+                    this.sprite = "/javamon/assets/sprites/farfetch_back.png";
+                } else {
+                    this.sprite = "/javamon/assets/sprites/farfetch_front.png";
+                }
+        }
+    }
+    
+    public void calculaAtributos(){
+        this.vida = 200;
+        
+    }
 
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public int getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
     public int getVida() {
         return vida;
-    }
-
-    public void setVida(int vida) {
-        this.vida = vida;
     }
 
     public int getAtaque() {
         return ataque;
     }
 
-    public void setAtaque(int ataque) {
-        this.ataque = ataque;
-    }
-
     public int getDefesa() {
         return defesa;
     }
-
-    public void setDefesa(int defesa) {
-        this.defesa = defesa;
-    }
-
-    public String getSprite_front() {
-        return sprite_front;
-    }
-
-    public void setSprite_front(String sprite_front) {
-        this.sprite_front = sprite_front;
-    }
-
-    public String getSprite_back() {
-        return sprite_back;
-    }
-
-    public void setSprite_back(String sprite_back) {
-        this.sprite_back = sprite_back;
-    }
     
-    
-   
+    public String getSprite() {
+        return sprite;
+    }
+
 }

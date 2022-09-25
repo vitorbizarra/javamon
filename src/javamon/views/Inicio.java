@@ -1,6 +1,7 @@
 package javamon.views;
 
 import java.awt.*;
+import javamon.models.Pokemon;
 import javax.swing.*;
 
 public class Inicio extends javax.swing.JFrame {
@@ -25,22 +26,6 @@ public class Inicio extends javax.swing.JFrame {
 
         ImageIcon imgOmanyte = new ImageIcon(getClass().getResource("/javamon/assets/arts/omanyte.png"));
         btnOmanyte.setIcon(new ImageIcon(imgOmanyte.getImage().getScaledInstance(btnOmanyte.getWidth(), btnOmanyte.getHeight(), Image.SCALE_DEFAULT)));
-
-        Batalha batalha = new Batalha();
-        new Thread() {
-            public void run() {
-                try {
-                    for (int i = 0; i < 101; i++) {
-                        Thread.sleep(60);
-                    }
-                    dispose();
-                    batalha.setVisible(true);
-                } catch (InterruptedException ex) {
-                }
-            }
-        }.start();
-
-        batalha.setNomeSeuPokemon("teste");
     }
 
     /**
@@ -67,11 +52,11 @@ public class Inicio extends javax.swing.JFrame {
         lblOutroPokemon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(720, 480));
         setResizable(false);
 
         btnGroupPokemon.add(rbSeuPokemon);
         rbSeuPokemon.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rbSeuPokemon.setSelected(true);
         rbSeuPokemon.setText("Seu Pokemon: ");
 
         btnGroupPokemon.add(rbOutroPokemon);
@@ -80,6 +65,11 @@ public class Inicio extends javax.swing.JFrame {
 
         btnBatalhar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnBatalhar.setText("Batalhar");
+        btnBatalhar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBatalharActionPerformed(evt);
+            }
+        });
 
         btnOmanyte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javamon/assets/arts/omanyte.png"))); // NOI18N
         btnOmanyte.setText("jButton1");
@@ -255,12 +245,48 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMagikarpActionPerformed
 
-    public void clicklBtnBatalhar() {
-        if (btnBatalhar.getModel().isPressed()) {
-            Inicio inicio = new Inicio();
-            inicio.setVisible(true);
+    private void btnBatalharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalharActionPerformed
+        if (!lblSeuPokemon.getText().equals("") && !lblOutroPokemon.getText().equals("")) {
+            String nomeSeuPokemon = lblSeuPokemon.getText();
+            String nomeOutroPokemon = lblOutroPokemon.getText();
+
+            String tipoSeuPokemon;
+            tipoSeuPokemon = switch (nomeSeuPokemon) {
+                case "Bulbassauro" ->
+                    "Planta";
+                case "Charmander" ->
+                    "Fogo";
+                case "Squirtle", "Magikarp" ->
+                    "Água";
+                case "Omanyte" ->
+                    "Pedra";
+                default ->
+                    "Normal";
+            };
+
+            String tipoOutroPokemon;
+            tipoOutroPokemon = switch (nomeOutroPokemon) {
+                case "Bulbassauro" ->
+                    "Planta";
+                case "Charmander" ->
+                    "Fogo";
+                case "Squirtle", "Magikarp" ->
+                    "Água";
+                case "Omanyte" ->
+                    "Pedra";
+                default ->
+                    "Normal";
+            };
+
+            Pokemon SeuPokemon = new Pokemon(nomeSeuPokemon, tipoSeuPokemon, 1, true);
+            Pokemon OutroPokemon = new Pokemon(nomeOutroPokemon, tipoOutroPokemon, 1, false);
+
+            this.setVisible(false);
+
+            Batalha batalha = new Batalha(nomeSeuPokemon, SeuPokemon.getSprite(), nomeOutroPokemon, OutroPokemon.getSprite());
+            batalha.setVisible(true);
         }
-    }
+    }//GEN-LAST:event_btnBatalharActionPerformed
 
     /**
      * @param args the command line arguments
