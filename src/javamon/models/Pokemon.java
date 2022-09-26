@@ -103,11 +103,16 @@ public class Pokemon {
 
     }
 
+    public Pokemon(int vida, int ataque, int defesa) {
+        this.vida = vida;
+        this.ataque = ataque;
+        this.defesa = defesa;
+    }
+
     public void calculaBonus() {
         this.vida = this.vida + (this.level / 2);
         this.ataque = this.ataque + (this.level / 3);
         this.defesa = this.defesa + (this.level / 4);
-
     }
 
     public void imprimePokemon() {

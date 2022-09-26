@@ -311,11 +311,18 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Atacar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAtacarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnBonus">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bonus"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGetBonus"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lbltipo">
           <Properties>
